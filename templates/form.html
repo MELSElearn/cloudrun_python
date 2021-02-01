@@ -113,10 +113,17 @@
 
       // Hide the button once clicked.
       event.target.classList.add('removed');  
+	   
+     const videoConstraints = {
+	// for camera in mobile facing user
+	//facingMode: 'user'
+	// for camera in mobile facing environment     
+    	facingMode: 'environment' 
+      };   
 
       // getUsermedia parameters to force video but not audio.
       const constraints = {
-        video: true
+        video: videoConstraints
       };
 
       // Activate the webcam stream.
