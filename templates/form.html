@@ -129,6 +129,7 @@
     var children = []; 
     function predictWebcam() {
       // Now let's start classifying a frame in the stream.
+	  
       cocoSsd.load().then(model => {
           model.detect(video).then(function (predictions) {
           // Remove any highlighting we did previous frame.
@@ -136,6 +137,7 @@
             liveView.removeChild(children[i]);
           }
           children.splice(0);
+		  console.log('Predictions: ', predictions);
 
           // Now lets loop through predictions and draw them to the live view if
           // they have a high confidence score.
